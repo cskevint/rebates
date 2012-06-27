@@ -11,7 +11,7 @@ p
   = @zip_code.state
 p
   strong Zone:
-  = @zip_code.zone
+  = @zip_code.zone.name
 
 = link_to 'Edit', edit_zip_code_path(@zip_code)
 '|

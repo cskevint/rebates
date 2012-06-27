@@ -36,8 +36,8 @@ table
       td = rebate.rebate_url
       td = rebate.rebateable_id
       td = rebate.rebateable_type
-      td = rebate.provider
-      td = rebate.zone
+      td = rebate.provider.name
+      td = rebate.zone.name
       td = link_to 'Show', rebate
       td = link_to 'Edit', edit_rebate_path(rebate)
       td = link_to 'Destroy', rebate, :confirm => 'Are you sure?', :method => :delete

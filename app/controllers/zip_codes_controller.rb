@@ -24,6 +24,7 @@ class ZipCodesController < ApplicationController
   # GET /zip_codes/new
   # GET /zip_codes/new.json
   def new
+    @zones = Zone.all
     @zip_code = ZipCode.new
 
     respond_to do |format|
@@ -34,6 +35,7 @@ class ZipCodesController < ApplicationController
 
   # GET /zip_codes/1/edit
   def edit
+    @zones = Zone.all
     @zip_code = ZipCode.find(params[:id])
   end
 

@@ -24,6 +24,8 @@ class RebatesController < ApplicationController
   # GET /rebates/new
   # GET /rebates/new.json
   def new
+    @providers = Provider.all
+    @zones = Zone.all
     @rebate = Rebate.new
 
     respond_to do |format|
@@ -34,6 +36,8 @@ class RebatesController < ApplicationController
 
   # GET /rebates/1/edit
   def edit
+    @providers = Provider.all
+    @zones = Zone.all
     @rebate = Rebate.find(params[:id])
   end
 
