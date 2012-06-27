@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title Rebates
+    == stylesheet_link_tag    "application", :media => "all"
+    == javascript_include_tag "application"
+    == csrf_meta_tags
+body
+  .nav
+    == link_to 'Categories', categories_path
+    == link_to 'SubCategories', sub_categories_path
+    == link_to 'Product Types', product_types_path
+    == link_to 'Products', products_path
+    == link_to 'Providers', providers_path
+    == link_to 'Zones', zones_path
+    == link_to 'ZipCodes', zip_codes_path
+    == link_to 'Rebates', rebates_path
+
+  == yield 
