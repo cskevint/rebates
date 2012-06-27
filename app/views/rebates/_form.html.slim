@@ -1,4 +1,4 @@
-= form_for @rebate do |f|
+= form_for([@rebateable, @rebate]) do |f|
   - if @rebate.errors.any?
     #error_explanation
       h2 = "#{pluralize(@rebate.errors.count, "error")} prohibited this rebate from being saved:"
@@ -39,12 +39,12 @@
   .field
     = f.label :rebate_url
     = f.text_area :rebate_url
-  .field
-    = f.label :rebateable_id
-    = f.number_field :rebateable_id
-  .field
-    = f.label :rebateable_type
-    = f.text_field :rebateable_type
+  /.field
+    /= f.label :rebateable_id
+    /= f.number_field :rebateable_id
+  /.field
+    /= f.label :rebateable_type
+    /= f.text_field :rebateable_type
   .field
     = f.label :provider_id
     = f.select "provider_id", @providers.map {|c| [c.name, c.id]}

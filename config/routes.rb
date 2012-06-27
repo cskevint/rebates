@@ -1,4 +1,13 @@
 Rebates::Application.routes.draw do
+
+  resources :products do
+    resources :rebates
+  end
+
+  resources :product_types do
+    resources :rebates
+  end
+
   resources :rebates
 
   resources :zip_codes
@@ -6,10 +15,6 @@ Rebates::Application.routes.draw do
   resources :zones
 
   resources :providers
-
-  resources :products
-
-  resources :product_types
 
   resources :sub_categories
 

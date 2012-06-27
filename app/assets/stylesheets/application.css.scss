@@ -1,8 +1,16 @@
 @import 'scaffolds';
 
-.nav {
-  a {
+a {
+  margin-right: 5px;
+}
+
+p {
+  strong {
     margin-right: 5px;
+  }
+
+  a {
+    margin-left: 5px;
   }
 }
 

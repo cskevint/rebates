@@ -1,8 +1,23 @@
 class RebatesController < ApplicationController
+
+  def find_rebateable
+    params.each do |name, value|
+      if name =~ /(.+)_id$/
+        return $1.classify.constantize.find(value)
+      end
+    end
+    nil
+  end
+
   # GET /rebates
   # GET /rebates.json
   def index
-    @rebates = Rebate.all
+    @rebateable = find_rebateable
+    if @rebateable.nil?
+      @rebates = Rebate.all
+    else
+      @rebates = @rebateable.rebates
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -26,6 +41,7 @@ class RebatesController < ApplicationController
   def new
     @providers = Provider.all
     @zones = Zone.all
+    @rebateable = find_rebateable
     @rebate = Rebate.new
 
     respond_to do |format|
@@ -38,17 +54,19 @@ class RebatesController < ApplicationController
   def edit
     @providers = Provider.all
     @zones = Zone.all
+    @rebateable = find_rebateable
     @rebate = Rebate.find(params[:id])
   end
 
   # POST /rebates
   # POST /rebates.json
   def create
-    @rebate = Rebate.new(params[:rebate])
+    @rebateable = find_rebateable
+    @rebate = @rebateable.rebates.build(params[:rebate])
 
     respond_to do |format|
       if @rebate.save
-        format.html { redirect_to @rebate, notice: 'Rebate was successfully created.' }
+        format.html { redirect_to :id => nil }
         format.json { render json: @rebate, status: :created, location: @rebate }
       else
         format.html { render action: "new" }
