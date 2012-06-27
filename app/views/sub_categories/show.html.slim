@@ -8,7 +8,7 @@ p
   = @sub_category.description
 p
   strong Category:
-  = @sub_category.category
+  = @sub_category.category.name
 
 = link_to 'Edit', edit_sub_category_path(@sub_category)
 '|

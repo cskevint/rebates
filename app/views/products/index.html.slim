@@ -15,9 +15,9 @@ table
     tr
       td = product.name
       td = product.description
-      td = product.category
-      td = product.sub_category
-      td = product.product_type
+      td = product.category.name
+      td = product.sub_category.name
+      td = product.product_type.name
       td = link_to 'Show', product
       td = link_to 'Edit', edit_product_path(product)
       td = link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete

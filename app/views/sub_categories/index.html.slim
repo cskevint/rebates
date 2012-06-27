@@ -13,7 +13,7 @@ table
     tr
       td = sub_category.name
       td = sub_category.description
-      td = sub_category.category
+      td = sub_category.category.name
       td = link_to 'Show', sub_category
       td = link_to 'Edit', edit_sub_category_path(sub_category)
       td = link_to 'Destroy', sub_category, :confirm => 'Are you sure?', :method => :delete

@@ -11,7 +11,7 @@ table
   - @providers.each do |provider|
     tr
       td = provider.name
-      td = provider.type
+      td = provider.ptype
       td = link_to 'Show', provider
       td = link_to 'Edit', edit_provider_path(provider)
       td = link_to 'Destroy', provider, :confirm => 'Are you sure?', :method => :delete
