@@ -1,5 +1,30 @@
 @import 'scaffolds';
 
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.nav {
+  position: fixed;
+  width: 130px;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  bottom: 0;
+  border-right: 1px solid #999;
+
+  a {
+    display: block;
+  }
+}
+
+.content {
+  padding: 10px;
+  margin-left: 150px;
+}
+
 a {
   margin-right: 5px;
 }
@@ -14,7 +39,23 @@ p {
   }
 }
 
+h1, h2, h3 {
+  margin: 0 0 10px;
+  padding: 0;
+}
+
 textarea {
   width: 400px;
   height: 50px;
+}
+
+table {
+  border-bottom: 1px solid #999;
+  border-right: 1px solid #999;
+
+  td, th {
+    padding: 4px;
+    border-top: 1px solid #999;
+    border-left: 1px solid #999;
+  }
 }
