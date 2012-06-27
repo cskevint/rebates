@@ -35,16 +35,18 @@ p
   = @rebate.rebate_url
 p
   strong Rebateable:
-  = @rebate.rebateable_id
-p
+  = @rebate.rebateable.name
+/p
   strong Rebateable type:
   = @rebate.rebateable_type
 p
   strong Provider:
-  = @rebate.provider.name
+  - unless @rebate.provider.nil?
+    = @rebate.provider.name
 p
   strong Zone:
-  = @rebate.zone.name
+  - unless @rebate.zone.nil?
+    = @rebate.zone.name
 
 = link_to 'Edit', edit_rebate_path(@rebate)
 '|

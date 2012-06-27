@@ -15,7 +15,9 @@ table(cellspacing=0)
       td = zip_code.name
       td = zip_code.city
       td = zip_code.state
-      td = zip_code.zone.name
+      td
+        - unless zip_code.zone.nil?
+          = zip_code.zone.name
       td = link_to 'Show', zip_code
       td = link_to 'Edit', edit_zip_code_path(zip_code)
       td = link_to 'Destroy', zip_code, :confirm => 'Are you sure?', :method => :delete
