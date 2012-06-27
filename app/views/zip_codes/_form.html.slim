@@ -17,5 +17,5 @@
     = f.text_field :state
   .field
     = f.label :zone_id
-    = f.select "zone_id", @zones.map {|c| [c.name, c.id]}
+    = f.select "zone_id", @zones.map {|c| [c.name, c.id]}, { :include_blank => true }
   .actions = f.submit 'Save'

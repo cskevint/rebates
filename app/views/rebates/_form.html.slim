@@ -47,8 +47,8 @@
     /= f.text_field :rebateable_type
   .field
     = f.label :provider_id
-    = f.select "provider_id", @providers.map {|c| [c.name, c.id]}
+    = f.select "provider_id", @providers.map {|c| [c.name, c.id]}, { :include_blank => true }
   .field
     = f.label :zone_id
-    = f.select "zone_id", @zones.map {|c| [c.name, c.id]}
+    = f.select "zone_id", @zones.map {|c| [c.name, c.id]}, { :include_blank => true }
   .actions = f.submit 'Save'

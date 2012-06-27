@@ -14,5 +14,5 @@
     = f.text_area :description
   .field
     = f.label :category_id
-    = f.select "category_id", @categories.map {|c| [c.name, c.id]}
+    = f.select "category_id", @categories.map {|c| [c.name, c.id]}, { :include_blank => true }
   .actions = f.submit 'Save'
