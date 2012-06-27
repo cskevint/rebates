@@ -1,4 +1,22 @@
 Rebates::Application.routes.draw do
+  resources :rebates
+
+  resources :zip_codes
+
+  resources :zones
+
+  resources :providers
+
+  resources :products
+
+  resources :product_types
+
+  resources :sub_categories
+
+  resources :categories
+
+  root :to => 'rebates#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

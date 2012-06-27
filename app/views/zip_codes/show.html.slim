@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @zip_code.name
+p
+  strong City:
+  = @zip_code.city
+p
+  strong State:
+  = @zip_code.state
+p
+  strong Zone:
+  = @zip_code.zone
+
+= link_to 'Edit', edit_zip_code_path(@zip_code)
+'|
+= link_to 'Back', zip_codes_path

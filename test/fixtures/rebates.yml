@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  description: MyText
+  units: MyString
+  amount: 1
+  available_date: 2012-06-27
+  expiration_date: 2012-06-27
+  exhausted_flag: false
+  requirements: MyText
+  exclusions: MyText
+  additional_details: MyText
+  rebate_url: MyText
+  rebateable_id: 1
+  rebateable_type: MyString
+  provider: 
+  zone: 
+
+two:
+  name: MyString
+  description: MyText
+  units: MyString
+  amount: 1
+  available_date: 2012-06-27
+  expiration_date: 2012-06-27
+  exhausted_flag: false
+  requirements: MyText
+  exclusions: MyText
+  additional_details: MyText
+  rebate_url: MyText
+  rebateable_id: 1
+  rebateable_type: MyString
+  provider: 
+  zone: 

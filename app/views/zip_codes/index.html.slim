@@ -1,0 +1,25 @@
+h1 Listing zip_codes
+
+table
+  tr
+    th Name
+    th City
+    th State
+    th Zone
+    th
+    th
+    th
+
+  - @zip_codes.each do |zip_code|
+    tr
+      td = zip_code.name
+      td = zip_code.city
+      td = zip_code.state
+      td = zip_code.zone
+      td = link_to 'Show', zip_code
+      td = link_to 'Edit', edit_zip_code_path(zip_code)
+      td = link_to 'Destroy', zip_code, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New Zip code', new_zip_code_path

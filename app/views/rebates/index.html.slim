@@ -1,0 +1,47 @@
+h1 Listing rebates
+
+table
+  tr
+    th Name
+    th Description
+    th Units
+    th Amount
+    th Available date
+    th Expiration date
+    th Exhausted flag
+    th Requirements
+    th Exclusions
+    th Additional details
+    th Rebate url
+    th Rebateable
+    th Rebateable type
+    th Provider
+    th Zone
+    th
+    th
+    th
+
+  - @rebates.each do |rebate|
+    tr
+      td = rebate.name
+      td = rebate.description
+      td = rebate.units
+      td = rebate.amount
+      td = rebate.available_date
+      td = rebate.expiration_date
+      td = rebate.exhausted_flag
+      td = rebate.requirements
+      td = rebate.exclusions
+      td = rebate.additional_details
+      td = rebate.rebate_url
+      td = rebate.rebateable_id
+      td = rebate.rebateable_type
+      td = rebate.provider
+      td = rebate.zone
+      td = link_to 'Show', rebate
+      td = link_to 'Edit', edit_rebate_path(rebate)
+      td = link_to 'Destroy', rebate, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New Rebate', new_rebate_path

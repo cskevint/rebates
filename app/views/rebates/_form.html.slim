@@ -1,0 +1,54 @@
+= form_for @rebate do |f|
+  - if @rebate.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@rebate.errors.count, "error")} prohibited this rebate from being saved:"
+      ul
+        - @rebate.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :description
+    = f.text_area :description
+  .field
+    = f.label :units
+    = f.text_field :units
+  .field
+    = f.label :amount
+    = f.number_field :amount
+  .field
+    = f.label :available_date
+    = f.date_select :available_date
+  .field
+    = f.label :expiration_date
+    = f.date_select :expiration_date
+  .field
+    = f.label :exhausted_flag
+    = f.check_box :exhausted_flag
+  .field
+    = f.label :requirements
+    = f.text_area :requirements
+  .field
+    = f.label :exclusions
+    = f.text_area :exclusions
+  .field
+    = f.label :additional_details
+    = f.text_area :additional_details
+  .field
+    = f.label :rebate_url
+    = f.text_area :rebate_url
+  .field
+    = f.label :rebateable_id
+    = f.number_field :rebateable_id
+  .field
+    = f.label :rebateable_type
+    = f.text_field :rebateable_type
+  .field
+    = f.label :provider
+    = f.text_field :provider
+  .field
+    = f.label :zone
+    = f.text_field :zone
+  .actions = f.submit 'Save'

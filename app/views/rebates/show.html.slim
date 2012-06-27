@@ -1,0 +1,51 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @rebate.name
+p
+  strong Description:
+  = @rebate.description
+p
+  strong Units:
+  = @rebate.units
+p
+  strong Amount:
+  = @rebate.amount
+p
+  strong Available date:
+  = @rebate.available_date
+p
+  strong Expiration date:
+  = @rebate.expiration_date
+p
+  strong Exhausted flag:
+  = @rebate.exhausted_flag
+p
+  strong Requirements:
+  = @rebate.requirements
+p
+  strong Exclusions:
+  = @rebate.exclusions
+p
+  strong Additional details:
+  = @rebate.additional_details
+p
+  strong Rebate url:
+  = @rebate.rebate_url
+p
+  strong Rebateable:
+  = @rebate.rebateable_id
+p
+  strong Rebateable type:
+  = @rebate.rebateable_type
+p
+  strong Provider:
+  = @rebate.provider
+p
+  strong Zone:
+  = @rebate.zone
+
+= link_to 'Edit', edit_rebate_path(@rebate)
+'|
+= link_to 'Back', rebates_path
