@@ -1,6 +1,8 @@
 h1 = @zip_code.name
 
 .sub-nav
+  = link_to 'New Zip Code', new_zip_code_path
+  '|
   = link_to 'Edit', edit_zip_code_path(@zip_code)
   '|
   = link_to 'Back', zip_codes_path

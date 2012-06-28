@@ -1,6 +1,8 @@
 h1 = @provider.name
 
 .sub-nav
+  = link_to 'New Provider', new_provider_path
+  '|
   = link_to 'Edit', edit_provider_path(@provider)
   '|
   = link_to 'Back', providers_path

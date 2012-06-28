@@ -1,6 +1,8 @@
 h1 Editing '#{@product.name}'
 
 .sub-nav
+  = link_to 'New Product', new_product_path
+  '|
   = link_to 'Show', @product
   '|
   = link_to 'Back', products_path
