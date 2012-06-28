@@ -25,8 +25,9 @@ table(cellspacing=0)
 
   - @rebates.each do |rebate|
     tr
-      td(style="white-space:nowrap")
-        = link_to rebate.name, rebate
+      td
+        div(style="white-space:nowrap;max-width:400px;text-overflow: ellipsis;overflow:hidden;")
+          = link_to rebate.name, rebate
       td = rebate.code
       /td = rebate.replacement
       td #{rebate.amount}/#{rebate.units}
@@ -38,8 +39,9 @@ table(cellspacing=0)
       /td = rebate.additional_details
       /td = rebate.rebate_url
       td
-        - unless rebate.rebateable.nil?
-          = link_to rebate.rebateable.name, rebate.rebateable
+        div(style="white-space:nowrap;max-width:250px;text-overflow: ellipsis;overflow:hidden;")
+          - unless rebate.rebateable.nil?
+            = link_to rebate.rebateable.name, rebate.rebateable
       td = rebate.rebateable_type
       /td
         - unless rebate.provider.nil?

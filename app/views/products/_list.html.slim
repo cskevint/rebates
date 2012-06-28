@@ -1,5 +1,6 @@
 div
   strong Parameters:
+/= form_for(ParameterValue.new, :url => product_parameter_parameter_value_index_path) do |f|
   - unless @product.product_type.parameters.empty?
     div
       i Product Type Level

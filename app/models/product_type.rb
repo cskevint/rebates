@@ -3,6 +3,7 @@ class ProductType < ActiveRecord::Base
 
   has_many :rebates, :as => :rebateable
   has_many :parameters, :as => :parameterable
+  has_many :parameter_values, :as => :valueable
 
   attr_accessible :description, :name, :sub_category_id
 

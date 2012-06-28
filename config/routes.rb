@@ -3,10 +3,16 @@ Rebates::Application.routes.draw do
   resources :parameters
 
   resources :products do
+    resources :parameters do
+      resources :parameter_value, :only => [:create, :update]
+    end
     resources :rebates
   end
 
   resources :product_types do
+    resources :parameters do
+      resources :parameter_value, :only => [:create, :update]
+    end
     resources :rebates
   end
 
