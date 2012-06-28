@@ -5,7 +5,8 @@ p
   = @sub_category.name
 p
   strong Description:
-  = @sub_category.description
+  div
+    = @sub_category.description
 p
   strong Category:
   - unless @sub_category.category.nil?

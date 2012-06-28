@@ -5,7 +5,9 @@ p
   = @category.name
 p
   strong Description:
-  = @category.description
+  div
+    ul
+      == @category.description.gsub("•","<li>")
 
 = link_to 'Edit', edit_category_path(@category)
 '|

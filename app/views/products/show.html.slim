@@ -6,15 +6,8 @@ p
   = link_to 'New Rebate', new_product_rebate_path(@product)
 p
   strong Description:
-  = @product.description
-/p
-  strong Category:
-  - unless @product.category.nil?
-    = @product.category.name
-/p
-  strong Sub category:
-  - unless @product.sub_category.nil?
-    = @product.sub_category.name
+  div
+    = @product.description
 p
   strong Product type:
   - unless @product.product_type.nil?

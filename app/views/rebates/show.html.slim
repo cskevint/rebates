@@ -11,7 +11,9 @@ p
   = @rebate.replacement
 p
   strong Description:
-  = @rebate.description
+  - unless @rebate.description.nil?
+    ul
+      == @rebate.description.gsub("•","<li>")
 p
   strong Units:
   = @rebate.units
@@ -29,21 +31,30 @@ p
   = @rebate.exhausted_flag
 p
   strong Requirements:
-  = @rebate.requirements
+  - unless @rebate.requirements.nil?
+    ul
+      == @rebate.requirements.gsub("•","<li>").gsub("–","<li style='margin-left:15px;list-style-type:square'>")
 p
   strong Exclusions:
-  = @rebate.exclusions
+  - unless @rebate.exclusions.nil?
+    ul
+      == @rebate.exclusions.gsub("•","<li>").gsub("–","<li style='margin-left:15px;list-style-type:square'>")
 p
   strong Additional details:
-  = @rebate.additional_details
+  - unless @rebate.additional_details.nil?
+    ul
+      == @rebate.additional_details.gsub("•","<li>").gsub("–","<li style='margin-left:15px;list-style-type:square'>")
 p
   strong Rebate url:
-  = @rebate.rebate_url
+  - unless @rebate.rebate_url.nil?
+    a(href="http://#{@rebate.rebate_url.gsub("http://", "")}")
+      = @rebate.rebate_url
 p
-  strong Rebateable:
-  = @rebate.rebateable.name
-/p
-  strong Rebateable type:
+  strong Rebate on:
+  - unless @rebate.rebateable.nil?
+    = @rebate.rebateable.name
+p
+  strong Type:
   = @rebate.rebateable_type
 p
   strong Provider:
@@ -53,6 +64,12 @@ p
   strong Zone:
   - unless @rebate.zone.nil?
     = @rebate.zone.name
+p
+  strong Created on:
+  = @rebate.created_at.in_time_zone("Pacific Time (US & Canada)")
+p
+  strong Updated on:
+  = @rebate.updated_at.in_time_zone("Pacific Time (US & Canada)")
 
 = link_to 'Edit', edit_rebate_path(@rebate)
 '|

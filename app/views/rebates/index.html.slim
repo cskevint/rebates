@@ -34,7 +34,9 @@ table(cellspacing=0)
       /td = rebate.exclusions
       /td = rebate.additional_details
       /td = rebate.rebate_url
-      td = rebate.rebateable.name
+      td
+        - unless rebate.rebateable.nil?
+          = rebate.rebateable.name
       td = rebate.rebateable_type
       td
         - unless rebate.provider.nil?

@@ -14,7 +14,7 @@ class RebatesController < ApplicationController
   def index
     @rebateable = find_rebateable
     if @rebateable.nil?
-      @rebates = Rebate.all
+      @rebates = Rebate.order(:name).all
     else
       @rebates = @rebateable.rebates
     end
