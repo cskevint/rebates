@@ -7,11 +7,11 @@ p
 p
   strong Description:
   = @product.description
-p
+/p
   strong Category:
   - unless @product.category.nil?
     = @product.category.name
-p
+/p
   strong Sub category:
   - unless @product.sub_category.nil?
     = @product.sub_category.name

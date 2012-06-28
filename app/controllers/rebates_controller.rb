@@ -43,6 +43,11 @@ class RebatesController < ApplicationController
     @zones = Zone.all
     @rebateable = find_rebateable
     @rebate = Rebate.new
+    if @rebateable.respond_to?(:product_type)
+      @rebate.name = @rebateable.product_type.sub_category.name+" Rebate"
+    else
+      @rebate.name = @rebateable.sub_category.name+" Rebate"
+    end
 
     respond_to do |format|
       format.html # new.html.erb

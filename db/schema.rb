@@ -23,23 +23,22 @@ ActiveRecord::Schema.define(:version => 20120627185618) do
   create_table "product_types", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "sub_category_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
+
+  add_index "product_types", ["sub_category_id"], :name => "index_product_types_on_sub_category_id"
 
   create_table "products", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.integer  "category_id"
-    t.integer  "sub_category_id"
     t.integer  "product_type_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
 
-  add_index "products", ["category_id"], :name => "index_products_on_category_id"
   add_index "products", ["product_type_id"], :name => "index_products_on_product_type_id"
-  add_index "products", ["sub_category_id"], :name => "index_products_on_sub_category_id"
 
   create_table "providers", :force => true do |t|
     t.string   "name"
@@ -50,6 +49,8 @@ ActiveRecord::Schema.define(:version => 20120627185618) do
 
   create_table "rebates", :force => true do |t|
     t.string   "name"
+    t.string   "code"
+    t.string   "replacement"
     t.text     "description"
     t.string   "units"
     t.integer  "amount"

@@ -2,6 +2,8 @@ class CreateRebates < ActiveRecord::Migration
   def change
     create_table :rebates do |t|
       t.string :name
+      t.string :code
+      t.string :replacement
       t.text :description
       t.string :units
       t.integer :amount

@@ -4,8 +4,6 @@ table(cellspacing=0)
   tr
     th Name
     th Description
-    th Category
-    th Sub category
     th Product type
     th
     th
@@ -15,12 +13,6 @@ table(cellspacing=0)
     tr
       td = product.name
       td = product.description
-      td
-        - unless product.category.nil?
-          = product.category.name
-      td
-        - unless product.sub_category.nil?
-          = product.sub_category.name
       td
         - unless product.product_type.nil?
           = product.product_type.name

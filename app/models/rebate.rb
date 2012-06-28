@@ -16,7 +16,9 @@ class Rebate < ActiveRecord::Base
                   :requirements,
                   :units,
                   :provider_id,
-                  :zone_id
+                  :zone_id,
+                  :code,
+                  :replacement
 
   validates :name,  :presence => true
 end

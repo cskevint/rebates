@@ -3,20 +3,20 @@ h1 Listing rebates
 table(cellspacing=0)
   tr
     th Name
-    /th Description
-    th Units
-    th Amount
-    th Available date
-    th Expiration date
-    th Exhausted flag
+    th Code
+    th Replacement
+    th Amount/Units
+    /th Available date
+    /th Expiration date
+    /th Exhausted flag
     /th Requirements
     /th Exclusions
     /th Additional details
-    th Rebate url
-    th Rebateable
-    th Rebateable type
+    /th Rebate url
+    th Rebate on
+    th Type
     th Provider
-    th Zone
+    /th Zone
     th
     th
     th
@@ -24,22 +24,22 @@ table(cellspacing=0)
   - @rebates.each do |rebate|
     tr
       td = rebate.name
-      /td = rebate.description
-      td = rebate.units
-      td = rebate.amount
-      td = rebate.available_date
-      td = rebate.expiration_date
-      td = rebate.exhausted_flag
+      td = rebate.code
+      td = rebate.replacement
+      td #{rebate.amount}/#{rebate.units}
+      /td = rebate.available_date
+      /td = rebate.expiration_date
+      /td = rebate.exhausted_flag
       /td = rebate.requirements
       /td = rebate.exclusions
       /td = rebate.additional_details
-      td = rebate.rebate_url
-      td = rebate.rebateable_id
+      /td = rebate.rebate_url
+      td = rebate.rebateable.name
       td = rebate.rebateable_type
       td
         - unless rebate.provider.nil?
           = rebate.provider.name
-      td
+      /td
         - unless rebate.zone.nil?
           = rebate.zone.name
       td = link_to 'Show', rebate
