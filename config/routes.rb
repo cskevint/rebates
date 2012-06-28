@@ -1,5 +1,7 @@
 Rebates::Application.routes.draw do
 
+  resources :parameters
+
   resources :products do
     resources :rebates
   end

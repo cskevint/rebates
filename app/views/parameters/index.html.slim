@@ -1,0 +1,24 @@
+h1 Parameters
+
+.sub-nav
+  = link_to 'New Parameter', new_parameter_path
+
+table(cellspacing=0)
+  tr
+    th Name
+    th Parameter for
+    th Type
+    th
+
+  - @parameters.each do |parameter|
+    tr
+      td = link_to parameter.name, parameter
+      td
+        - unless parameter.parameterable.nil?
+          = parameter.parameterable.name
+      td = parameter.parameterable_type
+      td
+        = link_to 'Edit', edit_parameter_path(parameter)
+        '|
+        = link_to 'Remove', parameter, :confirm => 'Are you sure?', :method => :delete
+

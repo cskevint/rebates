@@ -1,7 +1,10 @@
 class Rebate < ActiveRecord::Base
+
   belongs_to :provider
   belongs_to :zone
+
   belongs_to :rebateable, :polymorphic => true
+
   attr_accessible :additional_details,
                   :amount,
                   :available_date,

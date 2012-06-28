@@ -54,8 +54,14 @@ body {
 }
 
 a {
+  color: #0083d2 !important;
   text-decoration: none;
   margin-right: 5px;
+  background-color: transparent !important;
+
+  &:hover {
+    color: #999 !important;
+  }
 }
 
 p {
