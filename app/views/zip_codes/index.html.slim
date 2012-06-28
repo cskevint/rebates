@@ -10,17 +10,16 @@ table(cellspacing=0)
     th State
     th Zone
     th
-    th
-    th
 
   - @zip_codes.each do |zip_code|
     tr
-      td = zip_code.name
+      td = link_to zip_code.name, zip_code
       td = zip_code.city
       td = zip_code.state
       td
         - unless zip_code.zone.nil?
           = zip_code.zone.name
-      td = link_to 'Show', zip_code
-      td = link_to 'Edit', edit_zip_code_path(zip_code)
-      td = link_to 'Destroy', zip_code, :confirm => 'Are you sure?', :method => :delete
+      td
+        = link_to 'Edit', edit_zip_code_path(zip_code)
+        '|
+        = link_to 'Remove', zip_code, :confirm => 'Are you sure?', :method => :delete

@@ -8,13 +8,12 @@ table(cellspacing=0)
     th Name
     th Type
     th
-    th
-    th
 
   - @providers.each do |provider|
     tr
-      td = provider.name
+      td = link_to provider.name, provider
       td = provider.ptype
-      td = link_to 'Show', provider
-      td = link_to 'Edit', edit_provider_path(provider)
-      td = link_to 'Destroy', provider, :confirm => 'Are you sure?', :method => :delete
+      td
+        = link_to 'Edit', edit_provider_path(provider)
+        '|
+        = link_to 'Remove', provider, :confirm => 'Are you sure?', :method => :delete

@@ -6,7 +6,7 @@ table(cellspacing=0)
   tr
     th Name
     th Code
-    th Replacement
+    /th Replacement
     th Amount/Units
     /th Available date
     /th Expiration date
@@ -20,14 +20,13 @@ table(cellspacing=0)
     th Provider
     /th Zone
     th
-    th
-    th
 
   - @rebates.each do |rebate|
     tr
-      td = rebate.name
+      td(style="white-space:nowrap")
+        = link_to rebate.name, rebate
       td = rebate.code
-      td = rebate.replacement
+      /td = rebate.replacement
       td #{rebate.amount}/#{rebate.units}
       /td = rebate.available_date
       /td = rebate.expiration_date
@@ -46,9 +45,10 @@ table(cellspacing=0)
       /td
         - unless rebate.zone.nil?
           = rebate.zone.name
-      td = link_to 'Show', rebate
-      td = link_to 'Edit', edit_rebate_path(rebate)
-      td = link_to 'Destroy', rebate, :confirm => 'Are you sure?', :method => :delete
+      td(style="white-space:nowrap")
+        = link_to 'Edit', edit_rebate_path(rebate)
+        '|
+        = link_to 'Remove', rebate, :confirm => 'Are you sure?', :method => :delete
 
 br
 
