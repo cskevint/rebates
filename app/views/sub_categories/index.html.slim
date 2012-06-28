@@ -1,4 +1,7 @@
-h1 Listing sub_categories
+h1 Sub-categories
+
+.sub-nav
+  = link_to 'New Sub-category', new_sub_category_path
 
 table(cellspacing=0)
   tr
@@ -19,7 +22,3 @@ table(cellspacing=0)
       td = link_to 'Show', sub_category
       td = link_to 'Edit', edit_sub_category_path(sub_category)
       td = link_to 'Destroy', sub_category, :confirm => 'Are you sure?', :method => :delete
-
-br
-
-= link_to 'New Sub category', new_sub_category_path

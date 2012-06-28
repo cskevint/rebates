@@ -1,4 +1,7 @@
-h1 Listing zones
+h1 Zones
+
+.sub-nav
+  = link_to 'New Zone', new_zone_path
 
 table(cellspacing=0)
   tr
@@ -14,6 +17,3 @@ table(cellspacing=0)
       td = link_to 'Edit', edit_zone_path(zone)
       td = link_to 'Destroy', zone, :confirm => 'Are you sure?', :method => :delete
 
-br
-
-= link_to 'New Zone', new_zone_path

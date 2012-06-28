@@ -1,4 +1,7 @@
-h1 Listing zip_codes
+h1 Zip Codes
+
+.sub-nav
+  = link_to 'New Zip Code', new_zip_code_path
 
 table(cellspacing=0)
   tr
@@ -21,7 +24,3 @@ table(cellspacing=0)
       td = link_to 'Show', zip_code
       td = link_to 'Edit', edit_zip_code_path(zip_code)
       td = link_to 'Destroy', zip_code, :confirm => 'Are you sure?', :method => :delete
-
-br
-
-= link_to 'New Zip code', new_zip_code_path

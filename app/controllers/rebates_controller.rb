@@ -19,6 +19,8 @@ class RebatesController < ApplicationController
       @rebates = @rebateable.rebates
     end
 
+    @total = @rebates.count
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @rebates }
@@ -45,8 +47,10 @@ class RebatesController < ApplicationController
     @rebate = Rebate.new
     if @rebateable.respond_to?(:product_type)
       @rebate.name = @rebateable.product_type.sub_category.name+" Rebate"
+      @rebateable_type = "Product"
     else
       @rebate.name = @rebateable.sub_category.name+" Rebate"
+      @rebateable_type = "ProductType"
     end
 
     respond_to do |format|
@@ -59,8 +63,9 @@ class RebatesController < ApplicationController
   def edit
     @providers = Provider.all
     @zones = Zone.all
-    @rebateable = find_rebateable
     @rebate = Rebate.find(params[:id])
+    @rebateable = @rebate.rebateable
+    @rebateable_type = @rebate.rebateable_type
   end
 
   # POST /rebates

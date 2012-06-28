@@ -1,4 +1,7 @@
-h1 Listing providers
+h1 Providers
+
+.sub-nav
+  = link_to 'New Provider', new_provider_path
 
 table(cellspacing=0)
   tr
@@ -15,7 +18,3 @@ table(cellspacing=0)
       td = link_to 'Show', provider
       td = link_to 'Edit', edit_provider_path(provider)
       td = link_to 'Destroy', provider, :confirm => 'Are you sure?', :method => :delete
-
-br
-
-= link_to 'New Provider', new_provider_path

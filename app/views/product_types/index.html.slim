@@ -1,9 +1,13 @@
-h1 Listing product_types
+h1 Product Types
+
+.sub-nav
+  = link_to 'New Product Type', new_product_type_path
 
 table(cellspacing=0)
   tr
     th Name
-    th Description
+    th Sub-category
+    th New Rebate
     th
     th
     th
@@ -11,11 +15,10 @@ table(cellspacing=0)
   - @product_types.each do |product_type|
     tr
       td = product_type.name
-      td = product_type.description
+      td
+        - unless product_type.sub_category.nil?
+          = product_type.sub_category.name
+      td = link_to 'New Rebate', new_product_type_rebate_path(product_type)
       td = link_to 'Show', product_type
       td = link_to 'Edit', edit_product_type_path(product_type)
       td = link_to 'Destroy', product_type, :confirm => 'Are you sure?', :method => :delete
-
-br
-
-= link_to 'New Product type', new_product_type_path

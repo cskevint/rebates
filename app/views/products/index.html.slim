@@ -1,10 +1,13 @@
-h1 Listing products
+h1 Products
+
+.sub-nav
+  = link_to 'New Product', new_product_path
 
 table(cellspacing=0)
   tr
     th Name
-    th Description
-    th Product type
+    th Product Type
+    th New Rebate
     th
     th
     th
@@ -12,14 +15,10 @@ table(cellspacing=0)
   - @products.each do |product|
     tr
       td = product.name
-      td = product.description
       td
         - unless product.product_type.nil?
           = product.product_type.name
+      td = link_to 'New Rebate', new_product_rebate_path(product)
       td = link_to 'Show', product
       td = link_to 'Edit', edit_product_path(product)
       td = link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete
-
-br
-
-= link_to 'New Product', new_product_path
