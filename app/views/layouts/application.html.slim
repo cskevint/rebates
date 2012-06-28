@@ -10,17 +10,26 @@ body
     img(src="/assets/c3.gif")
     strong Incentives
 
-    == link_to 'Rebates', rebates_path
+    div
+      == link_to_unless_current 'Rebates', { :controller => :rebates, :action => :index }
     .divider
-    == link_to 'Categories', categories_path
-    == link_to 'Sub-categories', sub_categories_path
-    == link_to 'Product Types', product_types_path
-    == link_to 'Products', products_path
-    == link_to 'Parameters', parameters_path
+    div
+      == link_to_unless_current 'Categories', { :controller => :categories, :action => :index }
+    div
+      == link_to_unless_current 'Sub-categories', { :controller => :sub_categories, :action => :index }
+    div
+      == link_to_unless_current 'Product Types', { :controller => :product_types, :action => :index }
+    div
+      == link_to_unless_current 'Products', { :controller => :products, :action => :index }
+    div
+      == link_to_unless_current 'Parameters', { :controller => :parameters, :action => :index }
     .divider-d
-    == link_to 'Providers', providers_path
-    == link_to 'Zones', zones_path
-    == link_to 'Zip Codes', zip_codes_path
+    div
+      == link_to_unless_current 'Providers', { :controller => :providers, :action => :index }
+    div
+      == link_to_unless_current 'Zones', { :controller => :zones, :action => :index }
+    div
+      == link_to_unless_current 'Zip Codes', { :controller => :zip_codes, :action => :index }
 
 
   .content
