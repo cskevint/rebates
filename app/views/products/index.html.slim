@@ -15,16 +15,21 @@ table(cellspacing=0)
   - @products.each do |product|
     tr
       td
-        - unless product.product_type.sub_category.category.nil?
-          = link_to product.product_type.sub_category.category.name, product.product_type.sub_category.category
+        div(style="white-space:nowrap;max-width:200px;text-overflow: ellipsis;overflow:hidden;")
+          - unless product.product_type.sub_category.category.nil?
+            = link_to product.product_type.sub_category.category.name, product.product_type.sub_category.category
 
       td
-        - unless product.product_type.sub_category.nil?
-          = link_to product.product_type.sub_category.name, product.product_type.sub_category
+        div(style="white-space:nowrap;max-width:200px;text-overflow: ellipsis;overflow:hidden;")
+          - unless product.product_type.sub_category.nil?
+            = link_to product.product_type.sub_category.name, product.product_type.sub_category
       td
-        - unless product.product_type.nil?
-          = link_to product.product_type.name, product.product_type
-      td = link_to product.name, product
+        div(style="white-space:nowrap;max-width:200px;text-overflow: ellipsis;overflow:hidden;")
+          - unless product.product_type.nil?
+            = link_to product.product_type.name, product.product_type
+      td
+        div(style="white-space:nowrap;max-width:200px;text-overflow: ellipsis;overflow:hidden;")
+          = link_to product.name, product
       td = link_to 'New Rebate', new_product_rebate_path(product)
       td
         = link_to 'Edit', edit_product_path(product)

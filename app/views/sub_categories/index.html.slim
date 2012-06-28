@@ -12,11 +12,14 @@ table(cellspacing=0)
 
   - @sub_categories.each do |sub_category|
     tr
-      td = link_to sub_category.name, sub_category
+      td
+        div(style="white-space:nowrap;max-width:400px;text-overflow: ellipsis;overflow:hidden;")
+          = link_to sub_category.name, sub_category
       /td = sub_category.description
       td
-        - unless sub_category.category.nil?
-          = link_to sub_category.category.name, sub_category.category
+        div(style="white-space:nowrap;max-width:200px;text-overflow: ellipsis;overflow:hidden;")
+          - unless sub_category.category.nil?
+            = link_to sub_category.category.name, sub_category.category
       td
         = link_to 'Edit', edit_sub_category_path(sub_category)
         '|

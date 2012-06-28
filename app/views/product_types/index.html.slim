@@ -14,14 +14,18 @@ table(cellspacing=0)
   - @product_types.each do |product_type|
     tr
       td
-        - unless product_type.sub_category.category.nil?
-          = link_to product_type.sub_category.category.name, product_type.sub_category.category
+        div(style="white-space:nowrap;max-width:200px;text-overflow: ellipsis;overflow:hidden;")
+          - unless product_type.sub_category.category.nil?
+            = link_to product_type.sub_category.category.name, product_type.sub_category.category
 
       td
-        - unless product_type.sub_category.nil?
-          = link_to product_type.sub_category.name, product_type.sub_category
+        div(style="white-space:nowrap;max-width:200px;text-overflow: ellipsis;overflow:hidden;")
+          - unless product_type.sub_category.nil?
+            = link_to product_type.sub_category.name, product_type.sub_category
 
-      td = link_to product_type.name, product_type
+      td
+        div(style="white-space:nowrap;max-width:300px;text-overflow: ellipsis;overflow:hidden;")
+          = link_to product_type.name, product_type
 
       td = link_to 'New Rebate', new_product_type_rebate_path(product_type)
       td
