@@ -30,7 +30,9 @@ table(cellspacing=0)
           = link_to rebate.name, rebate
       td = rebate.code
       /td = rebate.replacement
-      td #{rebate.amount}/#{rebate.units}
+      td
+        div(style="white-space:nowrap;max-width:125px;text-overflow: ellipsis;overflow:hidden;")
+          | $#{rebate.amount}/#{rebate.units}
       /td = rebate.available_date
       /td = rebate.expiration_date
       /td = rebate.exhausted_flag

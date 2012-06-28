@@ -8,4 +8,8 @@ class Category < ActiveRecord::Base
 
   validates :name,  :presence => true
 
+  def find_rebates
+    sub_categories.inject([]) {|result, m| result.concat m.find_rebates }
+  end
+
 end

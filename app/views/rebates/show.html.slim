@@ -25,11 +25,8 @@ p
     ul
       == @rebate.description.gsub("•","<li>")
 p
-  strong Units:
-  = @rebate.units
-p
-  strong Amount:
-  = @rebate.amount
+  strong Amount/Unit:
+  | $#{@rebate.amount.to_s}/#{@rebate.units}
 p
   strong Available date:
   = @rebate.available_date

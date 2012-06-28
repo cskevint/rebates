@@ -3,5 +3,7 @@ class Zone < ActiveRecord::Base
 
   validates :name,  :presence => true
 
+  has_many :rebates
+
   has_many :zip_codes
 end

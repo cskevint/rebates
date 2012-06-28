@@ -9,4 +9,8 @@ class ProductType < ActiveRecord::Base
   attr_accessible :description, :name, :sub_category_id
 
   validates :name,  :presence => true
+
+  def find_rebates
+    products.inject([]) {|result, m| result.concat m.rebates }
+  end
 end

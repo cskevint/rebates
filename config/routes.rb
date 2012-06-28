@@ -16,17 +16,27 @@ Rebates::Application.routes.draw do
     resources :rebates
   end
 
-  resources :rebates
+  resources :rebates, :except => [:new]
 
-  resources :zip_codes
+  resources :zip_codes do
+    resources :rebates, :only => [:index]
+  end
 
-  resources :zones
+  resources :zones do
+    resources :rebates, :only => [:index]
+  end
 
-  resources :providers
+  resources :providers do
+    resources :rebates, :only => [:index]
+  end
 
-  resources :sub_categories
+  resources :sub_categories do
+    resources :rebates, :only => [:index]
+  end
 
-  resources :categories
+  resources :categories do
+    resources :rebates, :only => [:index]
+  end
 
   root :to => 'rebates#index'
 
