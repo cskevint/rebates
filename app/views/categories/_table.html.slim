@@ -4,12 +4,14 @@
       th Name
       th*{style: hide_parent ? "display:none" : ""}
         | Technology
+      th Rebates
       th
 
     - categories.each do |category|
       tr
         td = link_to category.name, category
         td*{style: hide_parent ? "display:none" : ""}
+        td = link_to 'Rebates', category_rebates_path(category)
         td
           = link_to 'Edit', edit_category_path(category)
           '|

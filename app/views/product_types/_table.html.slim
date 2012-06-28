@@ -7,6 +7,7 @@
         | Sub-category
       th Product Type Name
       th New Rebate
+      th Rebates
       th
 
     - product_types.each do |product_type|
@@ -26,6 +27,7 @@
             = link_to product_type.name, product_type
 
         td = link_to 'New Rebate', new_product_type_rebate_path(product_type)
+        td = link_to 'Rebates', product_type_rebates_path(product_type)
         td
           = link_to 'Edit', edit_product_type_path(product_type)
           '|

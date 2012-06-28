@@ -9,6 +9,7 @@
         | Product Type
       th Product Name
       th New Rebate
+      th Rebates
       th
 
     - products.each do |product|
@@ -33,6 +34,8 @@
             = link_to product.name, product
 
         td = link_to 'New Rebate', new_product_rebate_path(product)
+
+        td = link_to 'Rebates', product_rebates_path(product)
 
         td
           = link_to 'Edit', edit_product_path(product)

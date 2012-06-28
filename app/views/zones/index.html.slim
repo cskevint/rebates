@@ -6,11 +6,13 @@ h1 Territories
 table(cellspacing=0)
   tr
     th Name
+    th Rebates
     th
 
   - @zones.each do |zone|
     tr
       td =link_to  zone.name, zone
+      td = link_to 'Rebates', zone_rebates_path(zone)
       td
         = link_to 'Edit', edit_zone_path(zone)
         '|

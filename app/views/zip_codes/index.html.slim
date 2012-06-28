@@ -9,6 +9,7 @@ table(cellspacing=0)
     th City
     th State
     th Zone
+    th Rebates
     th
 
   - @zip_codes.each do |zip_code|
@@ -19,6 +20,7 @@ table(cellspacing=0)
       td
         - unless zip_code.zone.nil?
           = link_to zip_code.zone.name, zip_code.zone
+      td = link_to 'Rebates', zip_code_rebates_path(zip_code)
       td
         = link_to 'Edit', edit_zip_code_path(zip_code)
         '|
