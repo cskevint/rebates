@@ -16,3 +16,5 @@
     = f.label :sub_category_id
     = f.select "sub_category_id", @sub_categories.map {|c| [c.name, c.id]}, { :include_blank => true }
   .actions = f.submit 'Save'
+
+

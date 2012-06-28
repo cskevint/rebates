@@ -1,0 +1,32 @@
+div
+  strong Parameters:
+  - unless @product_type.parameters.empty?
+    div
+      i Product Type Level
+    table(cellspacing=0)
+      - @product_type.parameters.each do |p|
+        tr
+          td
+            = p.name
+          td
+            input(type="text")
+  - unless @product_type.sub_category.parameters.empty?
+    div
+      i Sub Category Level
+    table(cellspacing=0)
+      - @product_type.sub_category.parameters.each do |p|
+        tr
+          td
+            = p.name
+          td
+            input(type="text")
+  - unless @product_type.sub_category.category.parameters.empty?
+    div
+      i Category Level
+    table(cellspacing=0)
+      - @product_type.sub_category.category.parameters.each do |p|
+        tr
+          td
+            = p.name
+          td
+            input(type="text")

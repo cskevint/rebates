@@ -15,7 +15,7 @@ table(cellspacing=0)
       td = link_to parameter.name, parameter
       td
         - unless parameter.parameterable.nil?
-          = parameter.parameterable.name
+          = link_to parameter.parameterable.name, parameter.parameterable
       td = parameter.parameterable_type
       td
         = link_to 'Edit', edit_parameter_path(parameter)
