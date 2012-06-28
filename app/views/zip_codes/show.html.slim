@@ -1,8 +1,12 @@
+h1 = @zip_code.name
+
+.sub-nav
+  = link_to 'Edit', edit_zip_code_path(@zip_code)
+  '|
+  = link_to 'Back', zip_codes_path
+
 p#notice = notice
 
-p
-  strong Name:
-  = @zip_code.name
 p
   strong City:
   = @zip_code.city
@@ -12,8 +16,6 @@ p
 p
   strong Zone:
   - unless @zip_code.zone.nil?
-    = @zip_code.zone.name
+    = link_to @zip_code.zone.name, @zip_code.zone
 
-= link_to 'Edit', edit_zip_code_path(@zip_code)
-'|
-= link_to 'Back', zip_codes_path
+

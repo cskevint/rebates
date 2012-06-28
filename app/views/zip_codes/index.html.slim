@@ -18,7 +18,7 @@ table(cellspacing=0)
       td = zip_code.state
       td
         - unless zip_code.zone.nil?
-          = zip_code.zone.name
+          = link_to zip_code.zone.name, zip_code.zone
       td
         = link_to 'Edit', edit_zip_code_path(zip_code)
         '|

@@ -1,8 +1,11 @@
-h1 Editing zone
+h1 Editing '#{@zone.name}'
+
+.sub-nav
+  = link_to 'Show', @zone
+  '|
+  = link_to 'Back', zones_path
 
 == render 'form'
 
-= link_to 'Show', @zone
-'|
-= link_to 'Back', zones_path
+
 

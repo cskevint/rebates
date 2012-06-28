@@ -1,9 +1,14 @@
+h1 = @product.name
+
+.sub-nav
+  = link_to 'Edit', edit_product_path(@product)
+  '|
+  = link_to 'Back', products_path
+  '|
+  = link_to 'New Rebate', new_product_rebate_path(@product)
+
 p#notice = notice
 
-p
-  strong Name:
-  = @product.name
-  = link_to 'New Rebate', new_product_rebate_path(@product)
 p
   strong Description:
   div
@@ -11,9 +16,6 @@ p
 p
   strong Product type:
   - unless @product.product_type.nil?
-    = @product.product_type.name
-    = link_to 'New Rebate', new_product_type_rebate_path(@product.product_type)
+    = link_to @product.product_type.name, @product.product_type
 
-= link_to 'Edit', edit_product_path(@product)
-'|
-= link_to 'Back', products_path
+

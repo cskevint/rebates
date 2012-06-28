@@ -1,8 +1,12 @@
+h2 = @rebate.name
+
+.sub-nav
+  = link_to 'Edit', edit_rebate_path(@rebate)
+  '|
+  = link_to 'Back', rebates_path
+
 p#notice = notice
 
-p
-  strong Name:
-  = @rebate.name
 p
   strong Code:
   = @rebate.code
@@ -71,6 +75,4 @@ p
   strong Updated on:
   = @rebate.updated_at.in_time_zone("Pacific Time (US & Canada)")
 
-= link_to 'Edit', edit_rebate_path(@rebate)
-'|
-= link_to 'Back', rebates_path
+

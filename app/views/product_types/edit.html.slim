@@ -1,8 +1,11 @@
-h1 Editing product_type
+h1 Editing '#{@product_type.name}'
+
+.sub-nav
+  = link_to 'Show', @product_type
+  '|
+  = link_to 'Back', product_types_path
 
 == render 'form'
 
-= link_to 'Show', @product_type
-'|
-= link_to 'Back', product_types_path
+
 

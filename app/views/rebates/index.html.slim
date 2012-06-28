@@ -1,4 +1,6 @@
-h1 Rebates (#{@total})
+h1 Rebates
+
+span Total: #{@total}
 
 .sub-nav
 
@@ -17,7 +19,7 @@ table(cellspacing=0)
     /th Rebate url
     th Rebate on
     th Type
-    th Provider
+    /th Provider
     /th Zone
     th
 
@@ -37,9 +39,9 @@ table(cellspacing=0)
       /td = rebate.rebate_url
       td
         - unless rebate.rebateable.nil?
-          = rebate.rebateable.name
+          = link_to rebate.rebateable.name, rebate.rebateable
       td = rebate.rebateable_type
-      td
+      /td
         - unless rebate.provider.nil?
           = rebate.provider.name
       /td

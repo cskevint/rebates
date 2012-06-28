@@ -1,12 +1,14 @@
+h1 = @provider.name
+
+.sub-nav
+  = link_to 'Edit', edit_provider_path(@provider)
+  '|
+  = link_to 'Back', providers_path
+
 p#notice = notice
 
-p
-  strong Name:
-  = @provider.name
 p
   strong Type:
   = @provider.ptype
 
-= link_to 'Edit', edit_provider_path(@provider)
-'|
-= link_to 'Back', providers_path
+

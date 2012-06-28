@@ -16,7 +16,7 @@ table(cellspacing=0)
       /td = sub_category.description
       td
         - unless sub_category.category.nil?
-          = sub_category.category.name
+          = link_to sub_category.category.name, sub_category.category
       td
         = link_to 'Edit', edit_sub_category_path(sub_category)
         '|

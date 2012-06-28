@@ -1,14 +1,16 @@
+h1 = @category.name
+
+.sub-nav
+  = link_to 'Edit', edit_category_path(@category)
+  '|
+  = link_to 'Back', categories_path
+
 p#notice = notice
 
-p
-  strong Name:
-  = @category.name
 p
   strong Description:
   div
     ul
       == @category.description.gsub("•","<li>")
 
-= link_to 'Edit', edit_category_path(@category)
-'|
-= link_to 'Back', categories_path
+
