@@ -1,6 +1,7 @@
 class ProductType < ActiveRecord::Base
   belongs_to :sub_category
 
+  has_many :products
   has_many :rebates, :as => :rebateable
   has_many :parameters, :as => :parameterable
   has_many :parameter_values, :as => :valueable

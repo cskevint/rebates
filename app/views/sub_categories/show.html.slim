@@ -5,7 +5,7 @@ h1 = @sub_category.name
   '|
   = link_to 'Edit', edit_sub_category_path(@sub_category)
   '|
-  = link_to 'Back', sub_categories_path
+  = link_to 'List', sub_categories_path
 
 p#notice = notice
 
@@ -17,5 +17,17 @@ p
   strong Category:
   - unless @sub_category.category.nil?
     = link_to @sub_category.category.name, @sub_category.category
+
+div
+  strong Product Types:
+div
+  = link_to 'New Product Type', new_product_type_path
+  br
+  br
+
+= render partial: "product_types/table", locals: { product_types: @sub_category.product_types, hide_parent: true }
+
+
+
 
 

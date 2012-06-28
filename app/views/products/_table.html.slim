@@ -1,0 +1,40 @@
+- unless products.empty?
+  table(cellspacing=0)
+    tr
+      th*{style: hide_parent ? "display:none" : ""}
+        | Category
+      th*{style: hide_parent ? "display:none" : ""}
+        | Sub-category
+      th*{style: hide_parent ? "display:none" : ""}
+        | Product Type
+      th Product Name
+      th New Rebate
+      th
+
+    - products.each do |product|
+      tr
+        td*{style: hide_parent ? "display:none" : ""}
+          div(style="white-space:nowrap;max-width:200px;text-overflow: ellipsis;overflow:hidden;")
+            - unless product.product_type.sub_category.category.nil?
+              = link_to product.product_type.sub_category.category.name, product.product_type.sub_category.category
+
+        td*{style: hide_parent ? "display:none" : ""}
+          div(style="white-space:nowrap;max-width:200px;text-overflow: ellipsis;overflow:hidden;")
+            - unless product.product_type.sub_category.nil?
+              = link_to product.product_type.sub_category.name, product.product_type.sub_category
+
+        td*{style: hide_parent ? "display:none" : ""}
+          div(style="white-space:nowrap;max-width:200px;text-overflow: ellipsis;overflow:hidden;")
+            - unless product.product_type.nil?
+              = link_to product.product_type.name, product.product_type
+
+        td
+          div(style="white-space:nowrap;max-width:200px;text-overflow: ellipsis;overflow:hidden;")
+            = link_to product.name, product
+
+        td = link_to 'New Rebate', new_product_rebate_path(product)
+
+        td
+          = link_to 'Edit', edit_product_path(product)
+          '|
+          = link_to 'Remove', product, :confirm => 'Are you sure?', :method => :delete

@@ -5,7 +5,7 @@ h1 = @category.name
   '|
   = link_to 'Edit', edit_category_path(@category)
   '|
-  = link_to 'Back', categories_path
+  = link_to 'List', categories_path
 
 p#notice = notice
 
@@ -14,5 +14,15 @@ p
   div
     ul
       == @category.description.gsub("•","<li>")
+
+div
+  strong Sub-categories:
+div
+  = link_to 'New Sub-category', new_sub_category_path
+  br
+  br
+
+= render partial: "sub_categories/table", locals: { sub_categories: @category.sub_categories, hide_parent: true }
+
 
 

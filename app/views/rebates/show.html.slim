@@ -1,9 +1,15 @@
 h2 = @rebate.name
 
 .sub-nav
+  - if @rebate.previous
+    = link_to "< Previous", @rebate.previous
+    '|
   = link_to 'Edit', edit_rebate_path(@rebate)
   '|
-  = link_to 'Back', rebates_path
+  = link_to 'List', rebates_path
+  - if @rebate.next
+    '|
+    = link_to "Next >", @rebate.next
 
 p#notice = notice
 

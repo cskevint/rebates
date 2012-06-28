@@ -1,6 +1,7 @@
 class SubCategory < ActiveRecord::Base
   belongs_to :category
 
+  has_many :product_types
   has_many :parameters, :as => :parameterable
 
   attr_accessible :description, :name, :category_id

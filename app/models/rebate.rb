@@ -24,4 +24,13 @@ class Rebate < ActiveRecord::Base
                   :replacement
 
   validates :name,  :presence => true
+
+  def previous
+    Rebate.where(["id < ?", id]).last
+  end
+
+  def next
+    Rebate.where(["id > ?", id]).first
+  end
+
 end

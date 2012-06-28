@@ -1,0 +1,16 @@
+- unless categories.empty?
+  table(cellspacing=0)
+    tr
+      th Name
+      th*{style: hide_parent ? "display:none" : ""}
+        | Technology
+      th
+
+    - categories.each do |category|
+      tr
+        td = link_to category.name, category
+        td*{style: hide_parent ? "display:none" : ""}
+        td
+          = link_to 'Edit', edit_category_path(category)
+          '|
+          = link_to 'Remove', category, :confirm => 'Are you sure?', :method => :delete

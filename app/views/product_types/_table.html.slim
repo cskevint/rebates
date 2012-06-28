@@ -1,0 +1,32 @@
+- unless product_types.empty?
+  table(cellspacing=0)
+    tr
+      th*{style: hide_parent ? "display:none" : ""}
+        | Category
+      th*{style: hide_parent ? "display:none" : ""}
+        | Sub-category
+      th Product Type Name
+      th New Rebate
+      th
+
+    - product_types.each do |product_type|
+      tr
+        td*{style: hide_parent ? "display:none" : ""}
+          div(style="white-space:nowrap;max-width:200px;text-overflow: ellipsis;overflow:hidden;")
+            - unless product_type.sub_category.category.nil?
+              = link_to product_type.sub_category.category.name, product_type.sub_category.category
+
+        td*{style: hide_parent ? "display:none" : ""}
+          div(style="white-space:nowrap;max-width:200px;text-overflow: ellipsis;overflow:hidden;")
+            - unless product_type.sub_category.nil?
+              = link_to product_type.sub_category.name, product_type.sub_category
+
+        td
+          div(style="white-space:nowrap;max-width:300px;text-overflow: ellipsis;overflow:hidden;")
+            = link_to product_type.name, product_type
+
+        td = link_to 'New Rebate', new_product_type_rebate_path(product_type)
+        td
+          = link_to 'Edit', edit_product_type_path(product_type)
+          '|
+          = link_to 'Remove', product_type, :confirm => 'Are you sure?', :method => :delete

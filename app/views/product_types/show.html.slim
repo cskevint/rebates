@@ -5,7 +5,7 @@ h1 = @product_type.name
   '|
   = link_to 'Edit', edit_product_type_path(@product_type)
   '|
-  = link_to 'Back', product_types_path
+  = link_to 'List', product_types_path
   '|
   = link_to 'New Rebate', new_product_type_rebate_path(@product_type)
 
@@ -14,10 +14,25 @@ p#notice = notice
 p
   strong Description:
   div
-    = @product_type.description
+    ul
+      == @product_type.description.gsub("-","<li>")
 p
   strong Sub Category:
   - unless @product_type.sub_category.nil?
-    = @product_type.sub_category.name
+    = link_to @product_type.sub_category.name, @product_type.sub_category
+p
+  strong Category:
+  - unless @product_type.sub_category.category.nil?
+    = link_to @product_type.sub_category.category.name, @product_type.sub_category.category
 
-= render "list"
+= render "params"
+br
+
+div
+  strong Products:
+div
+  = link_to 'New Product', new_product_path
+  br
+  br
+
+== render partial: "products/table", locals: { products: @product_type.products, hide_parent: true }
