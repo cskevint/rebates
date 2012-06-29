@@ -1,21 +1,3 @@
-GIT
-  remote: git://github.com/chriseppstein/compass.git
-  revision: 7d4936a2228cb9472e1def0b3e03fa32293252ec
-  ref: 7d4936a2228cb9472e1def0b3e03fa32293252ec
-  specs:
-    compass (0.13.0.alpha.7d4936a)
-      chunky_png (~> 1.2)
-      fssm (>= 0.2.7)
-      sass (~> 3.2.0.alpha.93)
-
-GIT
-  remote: git://github.com/coderanger/compass-rails.git
-  revision: 8902affb8a77f11b7c9abf30b58f1e22c1ddfe7e
-  ref: 8902affb8a77f11b7c9abf30b58f1e22c1ddfe7e
-  specs:
-    compass-rails (1.0.0.rc.3)
-      compass (>= 0.13.alpha.0.a)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -47,13 +29,10 @@ GEM
       i18n (~> 0.6)
       multi_json (~> 1.0)
     arel (3.0.2)
-    bootstrap-sass (2.0.4.0)
     builder (3.0.0)
-    chunky_png (1.2.5)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
-    fssm (0.2.9)
     hike (1.2.1)
     i18n (0.6.0)
     journey (1.0.4)
@@ -99,9 +78,6 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
-    simple_form (2.0.2)
-      actionpack (~> 3.0)
-      activemodel (~> 3.0)
     slim (1.2.2)
       temple (~> 0.4.0)
       tilt (~> 1.3.3)
@@ -129,14 +105,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass
-  compass!
-  compass-rails!
   jquery-rails
   json
   pg
   rails (= 3.2.6)
   sass-rails (~> 3.2.3)
-  simple_form
   slim-rails
   uglifier (>= 1.0.3)
