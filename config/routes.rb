@@ -2,6 +2,8 @@ Rebates::Application.routes.draw do
 
   resources :parameters
 
+  resources :rebates, :except => [:new]
+
   resources :products do
     resources :parameters do
       resources :parameter_value, :only => [:create, :update]
@@ -14,9 +16,18 @@ Rebates::Application.routes.draw do
       resources :parameter_value, :only => [:create, :update]
     end
     resources :rebates
+    resources :products, :only => [:new]
   end
 
-  resources :rebates, :except => [:new]
+  resources :sub_categories do
+    resources :rebates, :only => [:index]
+    resources :product_types, :only => [:new]
+  end
+
+  resources :categories do
+    resources :rebates, :only => [:index]
+    resources :sub_categories, :only => [:new]
+  end
 
   resources :zip_codes do
     resources :rebates, :only => [:index]
@@ -27,14 +38,6 @@ Rebates::Application.routes.draw do
   end
 
   resources :providers do
-    resources :rebates, :only => [:index]
-  end
-
-  resources :sub_categories do
-    resources :rebates, :only => [:index]
-  end
-
-  resources :categories do
     resources :rebates, :only => [:index]
   end
 

@@ -14,7 +14,7 @@
     = f.text_area :description
   .field
     = f.label :sub_category_id
-    = f.select "sub_category_id", @sub_categories.map {|c| [c.name, c.id]}, { :include_blank => true }
+    = f.select "sub_category_id", @sub_categories.map {|c| [c.name, c.id]}, { :include_blank => true, :selected => params[:sub_category_id] }
   .actions = f.submit 'Save'
 
 
