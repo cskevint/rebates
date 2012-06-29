@@ -22,10 +22,10 @@ p
     = link_to @product_type.sub_category.name, @product_type.sub_category
 p
   strong Category:
-  - unless @product_type.sub_category.category.nil?
+  - unless @product_type.sub_category.nil? ||   @product_type.sub_category.category.nil?
     = link_to @product_type.sub_category.category.name, @product_type.sub_category.category
 
-= render "params"
+/= render "params"
 br
 
 div

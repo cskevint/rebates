@@ -14,7 +14,7 @@
       tr
         td*{style: hide_parent ? "display:none" : ""}
           div(style="white-space:nowrap;max-width:200px;text-overflow: ellipsis;overflow:hidden;")
-            - unless product_type.sub_category.category.nil?
+            - unless product_type.sub_category.nil? || product_type.sub_category.category.nil?
               = link_to product_type.sub_category.category.name, product_type.sub_category.category
 
         td*{style: hide_parent ? "display:none" : ""}
