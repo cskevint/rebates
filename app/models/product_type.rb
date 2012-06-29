@@ -11,6 +11,7 @@ class ProductType < ActiveRecord::Base
   validates :name,  :presence => true
 
   def find_rebates
-    products.inject([]) {|result, m| result.concat m.rebates }
+    result = products.inject([]) {|r, m| r.concat m.rebates }
+    rebates.inject(result) {|r, m| r.concat m }
   end
 end

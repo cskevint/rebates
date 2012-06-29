@@ -18,6 +18,8 @@ class RebatesController < ApplicationController
       @rebates = Category.find(params[:category_id]).find_rebates
     elsif params[:sub_category_id]
       @rebates = SubCategory.find(params[:sub_category_id]).find_rebates
+    elsif params[:product_type_id]
+      @rebates = ProductType.find(params[:product_type_id]).find_rebates
     elsif @rebateable
       @rebates = @rebateable.rebates
     else
