@@ -18,7 +18,9 @@ table(cellspacing=0)
     /th Additional details
     /th Rebate url
     th Rebate on
-    th Type
+    /th Type
+    th Eligible Sector
+    th Industry
     /th Provider
     /th Zone
     th
@@ -44,7 +46,9 @@ table(cellspacing=0)
         div(style="white-space:nowrap;max-width:250px;text-overflow: ellipsis;overflow:hidden;")
           - unless rebate.rebateable.nil?
             = link_to rebate.rebateable.name, rebate.rebateable
-      td = rebate.rebateable_type
+      /td = rebate.rebateable_type
+      td = rebate.sector_name
+      td = rebate.industry_name
       /td
         - unless rebate.provider.nil?
           = rebate.provider.name
