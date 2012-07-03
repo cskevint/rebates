@@ -1,6 +1,6 @@
 class Category < ActiveRecord::Base
 
-  attr_accessible :description, :name, :technology_tag
+  attr_accessible :description, :name, :sector
 
   has_many :parameters, :as => :parameterable
 
