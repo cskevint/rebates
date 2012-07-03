@@ -68,11 +68,15 @@
     = f.select "zone_id", @zones.map {|c| [c.name, c.id]}
 
   .field
-    = f.label :tag_names, "Eligible Sector"
-    = select_tag "sector_names", options_from_collection_for_select(@sectors, "name", "name", @rebate.sector_name), :include_blank => true
+    = f.label :sector_names, "Eligible Sectors"
+    - @sectors.each do |s|
+      = check_box_tag "sector_names[]", s.name, @rebate.sector_names.include?(s.name)
+      span = s.name
 
   .field
-    = f.label :tag_names, "Industry"
-    = select_tag "industry_names", options_from_collection_for_select(@industries, "name", "name", @rebate.industry_name), :include_blank => true
+    = f.label :industry_names, "Industries"
+    - @industries.each do |s|
+      = check_box_tag "industry_names[]", s.name, @rebate.industry_names.include?(s.name)
+      span = s.name
 
   .actions = f.submit 'Save'

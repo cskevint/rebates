@@ -76,7 +76,7 @@ h1, h2, h3 {
 }
 
 .field {
-  input {
+  input[type=text] {
     width: 800px;
   }
 
@@ -86,7 +86,7 @@ h1, h2, h3 {
       border: 0 none;
 
       input {
-        width: 200px;
+        width: 200px !important;
       }
     }
   }

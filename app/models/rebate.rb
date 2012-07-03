@@ -44,22 +44,24 @@ class Rebate < ActiveRecord::Base
     @tag_names || tags.map(&:name).join(', ')
   end
 
-  def sector_name
+  def sector_names
+    @names = []
     [1, 2].each do |i|
       if tag_ids.include? i
-        return Tag.find(i).name
+        @names.push Tag.find(i).name
       end
     end
-    nil
+    @names
   end
 
-  def industry_name
+  def industry_names
+    @names = []
     (3..20).each do |i|
       if tag_ids.include? i
-        return Tag.find(i).name
+        @names.push Tag.find(i).name
       end
     end
-    nil
+    @names
   end
 
   private

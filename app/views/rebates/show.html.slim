@@ -73,12 +73,12 @@ p
     = @rebate.zone.name
 
 p
-  strong Eligible Sector:
-  = @rebate.sector_name
+  strong Eligible Sectors:
+  = @rebate.sector_names.join(", ")
 
 p
-  strong Industry:
-  = @rebate.industry_name
+  strong Industries:
+  = @rebate.industry_names.join(", ")
 
 p
   strong Created on:

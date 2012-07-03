@@ -84,7 +84,7 @@ class RebatesController < ApplicationController
   def create
     @rebateable = find_rebateable
     @rebate = @rebateable.rebates.build(params[:rebate])
-    @rebate.tag_names = params[:sector_names] + "," + params[:industry_names]
+    @rebate.tag_names = params[:sector_names].join(',') + "," + params[:industry_names].join(',')
 
     respond_to do |format|
       if @rebate.save
@@ -101,7 +101,7 @@ class RebatesController < ApplicationController
   # PUT /rebates/1.json
   def update
     @rebate = Rebate.find(params[:id])
-    @rebate.tag_names = params[:sector_names] + "," + params[:industry_names]
+    @rebate.tag_names = params[:sector_names].join(',') + "," + params[:industry_names].join(',')
 
     respond_to do |format|
       if @rebate.update_attributes(params[:rebate])
