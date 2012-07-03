@@ -13,6 +13,23 @@ h2 = @rebate.name
 
 p#notice = notice
 
+div
+  strong Category:&nbsp;
+  = link_to @rebate.rebateable.product_type.sub_category.category.name, @rebate.rebateable.product_type.sub_category.category
+
+div
+  strong Sub-category:&nbsp;
+  = link_to @rebate.rebateable.product_type.sub_category.name, @rebate.rebateable.product_type.sub_category
+
+div
+  strong Product Type:&nbsp;
+  = link_to @rebate.rebateable.product_type.name, @rebate.rebateable.product_type
+
+div
+  strong Product:&nbsp;
+  - unless @rebate.rebateable.nil?
+    = link_to @rebate.rebateable.name, @rebate.rebateable
+
 p
   strong Code:
   = @rebate.code
@@ -27,15 +44,6 @@ p
 p
   strong Amount/Unit:
   | $#{@rebate.amount.to_s}/#{@rebate.units}
-p
-  strong Available date:
-  = @rebate.available_date
-p
-  strong Expiration date:
-  = @rebate.expiration_date
-p
-  strong Exhausted flag:
-  = @rebate.exhausted_flag
 p
   strong Requirements:
   - unless @rebate.requirements.nil?
@@ -57,13 +65,6 @@ p
     a(href="http://#{@rebate.rebate_url.gsub("http://", "")}")
       = @rebate.rebate_url
 p
-  strong Rebate on:
-  - unless @rebate.rebateable.nil?
-    = @rebate.rebateable.name
-p
-  strong Type:
-  = @rebate.rebateable_type
-p
   strong Provider:
   - unless @rebate.provider.nil?
     = @rebate.provider.name
@@ -80,11 +81,21 @@ p
   strong Industries:
   = @rebate.industry_names.join(", ")
 
+div
+  i Available date:&nbsp;
+  = @rebate.available_date
+div
+  i Expiration date:&nbsp;
+  = @rebate.expiration_date
+div
+  i Exhausted flag:&nbsp;
+  = @rebate.exhausted_flag
+
 p
-  strong Created on:
+  i Created on:&nbsp;
   = @rebate.created_at.in_time_zone("Pacific Time (US & Canada)")
 p
-  strong Updated on:
+  i Updated on:&nbsp;
   = @rebate.updated_at.in_time_zone("Pacific Time (US & Canada)")
 
 
