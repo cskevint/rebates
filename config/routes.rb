@@ -5,17 +5,16 @@ Rebates::Application.routes.draw do
   resources :rebates, :except => [:new]
 
   resources :products do
-    resources :parameters do
-      resources :parameter_value, :only => [:create, :update]
-    end
+    resources :parameter_value, :only => [:create, :update]
+
     resources :rebates
   end
 
   resources :product_types do
-    resources :parameters do
-      resources :parameter_value, :only => [:create, :update]
-    end
+    resources :parameter_value, :only => [:create, :update]
+
     resources :rebates
+
     resources :products, :only => [:new]
   end
 
