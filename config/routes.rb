@@ -1,5 +1,7 @@
 Rebates::Application.routes.draw do
 
+  resources :units
+
   resources :parameters
 
   resources :rebates, :except => [:new]

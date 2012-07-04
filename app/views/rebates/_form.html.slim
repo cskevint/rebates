@@ -32,7 +32,7 @@
         td
           = f.label :units
         td
-          = f.text_field :units
+          = f.select "units", @units.map {|c| [c.name, c.name]}, { :include_blank => true, :selected => @rebate.units }
   .field(style="display:none")
     = f.label :available_date
     = f.date_select :available_date

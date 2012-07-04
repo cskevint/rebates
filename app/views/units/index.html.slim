@@ -1,0 +1,21 @@
+h1 Units
+
+.sub-nav
+  = link_to 'New Unit', new_unit_path
+
+table
+  tr
+    th Name
+    th
+
+  - @units.each do |unit|
+    tr
+      td
+        = link_to unit.name, unit
+      td
+        = link_to 'Edit', edit_unit_path(unit)
+        '|
+        = link_to 'Remove', unit, :confirm => 'Are you sure?', :method => :delete
+
+br
+

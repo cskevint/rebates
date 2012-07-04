@@ -50,6 +50,7 @@ class RebatesController < ApplicationController
   def new
     @providers = Provider.all
     @zones = Zone.all
+    @units = Unit.all
     @rebateable = find_rebateable
     @rebate = Rebate.new
     if @rebateable.respond_to?(:product_type)
@@ -72,6 +73,7 @@ class RebatesController < ApplicationController
   def edit
     @providers = Provider.all
     @zones = Zone.all
+    @units = Unit.all
     @rebate = Rebate.find(params[:id])
     @rebateable = @rebate.rebateable
     @rebateable_type = @rebate.rebateable_type
