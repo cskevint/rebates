@@ -24,5 +24,8 @@ div
 
 = render partial: "sub_categories/table", locals: { sub_categories: @category.sub_categories, hide_parent: true }
 
+div
+  br
+  = link_to 'View Rebates', category_rebates_path(@category)
 
 
