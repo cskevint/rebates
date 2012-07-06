@@ -8,7 +8,8 @@
 
   .field
     strong Rebate for:&nbsp;
-    span #{@rebateable.name} [#{@rebateable_type}]
+    - if defined? @rebateable.name
+      span #{@rebateable.name} [#{@rebateable_type}]
 
   .field
     = f.label :name
@@ -33,13 +34,13 @@
           = f.label :units
         td
           = f.select "units", @units.map {|c| [c.name, c.name]}, { :include_blank => true, :selected => @rebate.units }
-  .field(style="display:none")
+  .field
     = f.label :available_date
     = f.date_select :available_date
-  .field(style="display:none")
+  .field
     = f.label :expiration_date
     = f.date_select :expiration_date
-  .field(style="display:none")
+  .field
     = f.label :exhausted_flag
     = f.check_box :exhausted_flag
   .field

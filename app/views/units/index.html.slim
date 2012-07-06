@@ -6,12 +6,16 @@ h1 Units
 table
   tr
     th Name
+    th Description
     th
 
   - @units.each do |unit|
     tr
       td
         = link_to unit.name, unit
+      td
+        div(style="white-space:nowrap;max-width:200px;text-overflow: ellipsis;overflow:hidden;")
+          = unit.description
       td
         = link_to 'Edit', edit_unit_path(unit)
         '|

@@ -15,15 +15,18 @@ p#notice = notice
 
 div
   strong Category:&nbsp;
-  = link_to @rebate.rebateable.product_type.sub_category.category.name, @rebate.rebateable.product_type.sub_category.category
+  - if defined? @rebate.rebateable.product_type.sub_category.category
+    = link_to @rebate.rebateable.product_type.sub_category.category.name, @rebate.rebateable.product_type.sub_category.category
 
 div
   strong Sub-category:&nbsp;
-  = link_to @rebate.rebateable.product_type.sub_category.name, @rebate.rebateable.product_type.sub_category
+  - if defined? @rebate.rebateable.product_type.sub_category
+    = link_to @rebate.rebateable.product_type.sub_category.name, @rebate.rebateable.product_type.sub_category
 
 div
   strong Product Type:&nbsp;
-  = link_to @rebate.rebateable.product_type.name, @rebate.rebateable.product_type
+  - if defined? @rebate.rebateable.product_type.name
+    = link_to @rebate.rebateable.product_type.name, @rebate.rebateable.product_type
 
 div
   strong Product:&nbsp;
