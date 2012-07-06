@@ -51,7 +51,7 @@ p
   strong Requirements:
   - unless @rebate.requirements.nil?
     ul
-      == @rebate.requirements.gsub("•","<li>").gsub("–","<li style='margin-left:15px;list-style-type:square'>")
+      == render_table(@rebate.requirements.gsub("•","<li>").gsub("–","<li style='margin-left:15px;list-style-type:square'>"))
 p
   strong Exclusions:
   - unless @rebate.exclusions.nil?
