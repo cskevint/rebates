@@ -67,11 +67,13 @@ class ParametersController < ApplicationController
   # PUT /parameters/1
   # PUT /parameters/1.json
   def update
-    # todo ktrotter update currently broken
     @parameter = Parameter.find(params[:id])
+    @parameter.name = params[:parameter][:name]
+    @parameter.description = params[:parameter][:description]
+    @parameter.parameterable = find_parameterable
 
     respond_to do |format|
-      if @parameter.update_attributes(params[:parameter])
+      if @parameter.save
         format.html { redirect_to @parameter, notice: 'Parameter was successfully updated.' }
         format.json { head :no_content }
       else

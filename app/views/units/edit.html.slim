@@ -1,0 +1,12 @@
+h1 Editing Unit
+
+.sub-nav
+  = link_to 'New Unit', new_unit_path
+  '|
+  = link_to 'Show', @unit
+  '|
+  = link_to 'List', units_path
+
+== render 'form'
+
+

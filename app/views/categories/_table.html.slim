@@ -2,6 +2,7 @@
   table(cellspacing=0)
     tr
       th Name
+      th Sector
       th*{style: hide_parent ? "display:none" : ""}
         | Technology
       th Rebates
@@ -10,6 +11,7 @@
     - categories.each do |category|
       tr
         td = link_to category.name, category
+        td = category.sector
         td*{style: hide_parent ? "display:none" : ""}
         td = link_to 'Rebates', category_rebates_path(category)
         td

@@ -8,6 +8,7 @@
       th*{style: hide_parent ? "display:none" : ""}
         | Product Type
       th Product Name
+      th Sector
       th New Rebate
       th Rebates
       th
@@ -33,11 +34,14 @@
           div(style="white-space:nowrap;max-width:200px;text-overflow: ellipsis;overflow:hidden;")
             = link_to product.name, product
 
-        td = link_to 'New Rebate', new_product_rebate_path(product)
+        td = product.product_type.sub_category.category.sector
+
+        td(style="white-space:nowrap")
+          = link_to 'New Rebate', new_product_rebate_path(product)
 
         td = link_to 'Rebates', product_rebates_path(product)
 
-        td
+        td(style="white-space:nowrap")
           = link_to 'Edit', edit_product_path(product)
           '|
           = link_to 'Remove', product, :confirm => 'Are you sure?', :method => :delete

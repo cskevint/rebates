@@ -1,33 +1,37 @@
 div
-  strong Parameters:
-/= form_for(ParameterValue.new, :url => product_parameter_parameter_value_index_path) do |f|
-  - unless @product.product_type.parameters.empty?
-    div
-      i Product Type Level
-    table(cellspacing=0)
-      - @product.product_type.parameters.each do |p|
-        tr
-          td
-            = p.name
-          td
-            input(type="text" name="#{p.id}")
-  - unless @product.product_type.sub_category.parameters.empty?
-    div
-      i Sub Category Level
-    table(cellspacing=0)
-      - @product.product_type.sub_category.parameters.each do |p|
-        tr
-          td
-            = p.name
-          td
-            input(type="text" name="#{p.id}")
-  - unless @product.product_type.sub_category.category.parameters.empty?
-    div
-      i Category Level
-    table(cellspacing=0)
-      - @product.product_type.sub_category.category.parameters.each do |p|
-        tr
-          td
-            = p.name
-          td
-            input(type="text" name="#{p.id}")
+  = form_for @product, :method => :post, :url => product_parameter_value_index_path(@product) do |f|
+    strong Parameters:
+    - unless @product.product_type.parameters.empty?
+      div
+        i Product Type Level
+      table(cellspacing=0)
+        - @product.product_type.parameters.each do |p|
+          tr
+            td
+              = p.name
+            td
+              - value = @product.parameter_values.reject{|v|v.parameter_id != p.id}.size > 0 ? @product.parameter_values.reject{|v|v.parameter_id != p.id}[0].value : nil
+              = text_field_tag "parameter_"+p.id.to_s, value
+    - unless @product.product_type.sub_category.parameters.empty?
+      div
+        i Sub Category Level
+      table(cellspacing=0)
+        - @product.product_type.sub_category.parameters.each do |p|
+          tr
+            td
+              = p.name
+            td
+              - value = @product.parameter_values.reject{|v|v.parameter_id != p.id}.size > 0 ? @product.parameter_values.reject{|v|v.parameter_id != p.id}[0].value : nil
+              = text_field_tag "parameter_"+p.id.to_s, value
+    - unless @product.product_type.sub_category.category.parameters.empty?
+      div
+        i Category Level
+      table(cellspacing=0)
+        - @product.product_type.sub_category.category.parameters.each do |p|
+          tr
+            td
+              = p.name
+            td
+              - value = @product.parameter_values.reject{|v|v.parameter_id != p.id}.size > 0 ? @product.parameter_values.reject{|v|v.parameter_id != p.id}[0].value : nil
+              = text_field_tag "parameter_"+p.id.to_s, value
+    .actions = f.submit 'Save'

@@ -11,13 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120628170025) do
+ActiveRecord::Schema.define(:version => 20120706201046) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "sector"
   end
 
   create_table "parameter_values", :force => true do |t|
@@ -46,7 +47,7 @@ ActiveRecord::Schema.define(:version => 20120628170025) do
     t.datetime "updated_at",      :null => false
   end
 
-  add_index "product_types", ["sub_category_id"], :name => "index_product_types_on_sub_category_id"
+  add_index "product_types", ["id"], :name => "index_product_types_on_sub_category_id"
 
   create_table "products", :force => true do |t|
     t.string   "name"
@@ -56,7 +57,7 @@ ActiveRecord::Schema.define(:version => 20120628170025) do
     t.datetime "updated_at",      :null => false
   end
 
-  add_index "products", ["product_type_id"], :name => "index_products_on_product_type_id"
+  add_index "products", ["id"], :name => "index_products_on_product_type_id"
 
   create_table "providers", :force => true do |t|
     t.string   "name"
@@ -98,7 +99,27 @@ ActiveRecord::Schema.define(:version => 20120628170025) do
     t.datetime "updated_at",  :null => false
   end
 
-  add_index "sub_categories", ["category_id"], :name => "index_sub_categories_on_category_id"
+  add_index "sub_categories", ["id"], :name => "index_sub_categories_on_category_id"
+
+  create_table "taggings", :force => true do |t|
+    t.integer  "rebate_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "tags", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "units", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "description"
+  end
 
   create_table "zip_codes", :force => true do |t|
     t.string   "name"

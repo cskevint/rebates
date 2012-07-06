@@ -50,6 +50,7 @@ class RebatesController < ApplicationController
   def new
     @providers = Provider.all
     @zones = Zone.all
+    @units = Unit.all
     @rebateable = find_rebateable
     @rebate = Rebate.new
     if @rebateable.respond_to?(:product_type)
@@ -59,6 +60,8 @@ class RebatesController < ApplicationController
       @rebate.name = @rebateable.sub_category.name+" Rebate"
       @rebateable_type = "ProductType"
     end
+    @sectors = Tag.find(1,2)
+    @industries = Tag.where("id >= 3")
 
     respond_to do |format|
       format.html # new.html.erb
@@ -70,9 +73,12 @@ class RebatesController < ApplicationController
   def edit
     @providers = Provider.all
     @zones = Zone.all
+    @units = Unit.all
     @rebate = Rebate.find(params[:id])
     @rebateable = @rebate.rebateable
     @rebateable_type = @rebate.rebateable_type
+    @sectors = Tag.find(1,2)
+    @industries = Tag.where("id >= 3")
   end
 
   # POST /rebates
@@ -80,6 +86,9 @@ class RebatesController < ApplicationController
   def create
     @rebateable = find_rebateable
     @rebate = @rebateable.rebates.build(params[:rebate])
+    @sector_names = params[:sector_names] || []
+    @industry_names = params[:industry_names] || []
+    @rebate.tag_names = @sector_names.join(',') + "," + @industry_names.join(',')
 
     respond_to do |format|
       if @rebate.save
@@ -96,6 +105,9 @@ class RebatesController < ApplicationController
   # PUT /rebates/1.json
   def update
     @rebate = Rebate.find(params[:id])
+    @sector_names = params[:sector_names] || []
+    @industry_names = params[:industry_names] || []
+    @rebate.tag_names = @sector_names.join(',') + "," + @industry_names.join(',')
 
     respond_to do |format|
       if @rebate.update_attributes(params[:rebate])

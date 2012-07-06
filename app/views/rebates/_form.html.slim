@@ -8,7 +8,8 @@
 
   .field
     strong Rebate for:&nbsp;
-    span #{@rebateable.name} [#{@rebateable_type}]
+    - if defined? @rebateable.name
+      span #{@rebateable.name} [#{@rebateable_type}]
 
   .field
     = f.label :name
@@ -28,18 +29,18 @@
         td
           = f.label :amount
         td
-          = f.number_field :amount
+          = f.text_field :amount
         td
           = f.label :units
         td
-          = f.text_field :units
-  .field(style="display:none")
+          = f.select "units", @units.map {|c| [c.name, c.name]}, { :include_blank => true, :selected => @rebate.units }
+  .field
     = f.label :available_date
     = f.date_select :available_date
-  .field(style="display:none")
+  .field
     = f.label :expiration_date
     = f.date_select :expiration_date
-  .field(style="display:none")
+  .field
     = f.label :exhausted_flag
     = f.check_box :exhausted_flag
   .field
@@ -66,4 +67,17 @@
   .field
     = f.label :zone_id
     = f.select "zone_id", @zones.map {|c| [c.name, c.id]}
+
+  .field
+    = f.label :sector_names, "Eligible Sectors"
+    - @sectors.each do |s|
+      = check_box_tag "sector_names[]", s.name, @rebate.sector_names.include?(s.name)
+      span = s.name
+
+  .field
+    = f.label :industry_names, "Industries"
+    - @industries.each do |s|
+      = check_box_tag "industry_names[]", s.name, @rebate.industry_names.include?(s.name)
+      span = s.name
+
   .actions = f.submit 'Save'
