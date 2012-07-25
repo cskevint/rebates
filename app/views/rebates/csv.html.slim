@@ -1,0 +1,49 @@
+div(style="margin-bottom:10px;")
+  | Name,
+  | Rebate Code,
+  | Category,
+  | Sub-category,
+  | Product Type,
+  | Product,
+  | Replacement,
+  | Amount,
+  | Units,
+  | Available date,
+  | Expiration date,
+  | Exhausted flag,
+  | Requirements,
+  | Exclusions,
+  | Additional details,
+  | Rebate url,
+  | Eligible Sectors,
+  | Industries,
+  | Provider,
+  | Zone
+
+- @rebates.each do |rebate|
+  div(style="margin-bottom:10px;")
+    | "#{rebate.name}",
+    | "#{rebate.code}",
+    - if defined? rebate.rebateable.product_type.sub_category.category
+      | "#{rebate.rebateable.product_type.sub_category.category.name.gsub("\"","''").gsub(",","-")}",
+    - if defined? rebate.rebateable.product_type.sub_category
+      | "#{rebate.rebateable.product_type.sub_category.name.gsub("\"","''").gsub(",","-")}",
+    - if defined? rebate.rebateable.product_type
+      | "#{rebate.rebateable.product_type.name.gsub("\"","''").gsub(",","-")}",
+    - unless rebate.rebateable.nil?
+      | "#{rebate.rebateable.name.gsub("\"","''").gsub(",","-")}",
+    | "#{rebate.replacement}",
+    | "$#{rebate.amount}",
+    | "#{rebate.units}",
+    | "#{rebate.available_date}",
+    | "#{rebate.expiration_date}",
+    | "#{rebate.exhausted_flag}",
+    | "#{rebate.requirements.gsub("\"","''").gsub(",","-")}",
+    | "#{rebate.exclusions.gsub("\"","''").gsub(",","-")}",
+    | "#{rebate.additional_details.gsub("\"","''").gsub(",","-")}",
+    | "#{rebate.rebate_url}",
+    | "#{rebate.sector_names.join(", ")}",
+    | "#{rebate.industry_names.join(", ")}",
+    | "#{rebate.provider.name}",
+    | "#{rebate.zone.name}"
+
