@@ -1,1 +1,6 @@
-rvm --create ruby-1.9.3-p194@rebates
+#!/usr/bin/env bash
+ruby_string="${PEAT_RUBY_VERSION:-ruby-1.9.3-p194}"
+
+rvm use --create "${ruby_string}@rebates"
+
+
